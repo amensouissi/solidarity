@@ -1,0 +1,3 @@
+[run]
+source = solidarity
+omit = solidarity/test*

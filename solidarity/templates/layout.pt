@@ -1,0 +1,16 @@
+<!DOCTYPE html metal:define-macro="layout">
+<html lang="{{request.locale_name}}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solidarity web application">
+    <meta name="author" content="Amen souissi">
+    <title>Solidarity</title>
+  </head>
+  <body>
+    <div id='root'></div>
+    <div id='modal-portal'></div>
+    <script src="${root_url}/build/bundle.js"></script>
+  </body>
+</html>

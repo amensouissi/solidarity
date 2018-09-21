@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main component should render the main component (loading) 1`] = `"Loading..."`;
+
+exports[`Main component should render the main component 1`] = `
+<div>
+  <strong>
+    message
+  </strong>
+   
+  : FooBar
+</div>
+`;
