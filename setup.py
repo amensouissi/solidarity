@@ -3,7 +3,7 @@ import os
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, 'README.txt')) as f:
+with open(os.path.join(here, 'README.rst')) as f:
     README = f.read()
 with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
@@ -22,7 +22,6 @@ requires = [
 ]
 
 tests_require = [
-    'WebTest >= 1.3.1',  # py3 compat
     'pytest',
     'pytest-cov',
 ]
@@ -41,19 +40,20 @@ setup(
     author='Amen SOUISSI',
     author_email='amensouissi@ecreall.com',
     url='',
-    keywords='web pyramid pylons',
+    license="AGPLv3+",
+    keywords='web pyramid pylons, ReactJs',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
+    tests_require=requires,
+    test_suite="solidarity",
     extras_require={
-        'testing': tests_require,
+        'test': tests_require,
     },
     install_requires=requires,
     entry_points="""\
       [paste.app_factory]
       main = solidarity:main
-      [console_scripts]
-      initialize_solidarity_db = solidarity.initialize_db:main
       """
 )
 
