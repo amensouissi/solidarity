@@ -35,7 +35,8 @@ module.exports = {
             'webpack-dev-server/client?' + WEBPACK_URL,
             'react-hot-loader/patch',
             './js/app/index',
-        ]
+        ],
+       solidarity: ['./css/solidarity.scss']
     },
     output: {
         path: path.join(__dirname, 'build'),

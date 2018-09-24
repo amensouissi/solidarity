@@ -8,14 +8,14 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { toIdValue } from 'apollo-utilities';
 
 let urlMetadataWebServiceUrl;
- 
+
 if (window.location.port) {
   // if we have a port defined, we are in development mode
   urlMetadataWebServiceUrl = `${window.location.protocol}//${window.location.hostname}:5000`; // http://localhost:5000
 } else {
   urlMetadataWebServiceUrl = `${window.location.protocol}//${window.location.hostname}/urlmetadata`;
 }
-  
+
 const dataIdFromObject = (o) => {
   return o.id;
 };

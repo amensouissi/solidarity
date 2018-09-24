@@ -15,7 +15,7 @@ type Props = {
 export const DumbMain = ({ data }: Props) => {
   if (data.loading) return 'Loading...';
   return (
-    <div>
+    <div className="container">
       <strong>{I18n.t('message')}</strong> {`: ${data.comment}`}
     </div>
   );

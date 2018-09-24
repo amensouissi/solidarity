@@ -7,10 +7,12 @@
     <meta name="description" content="Solidarity web application">
     <meta name="author" content="Amen souissi">
     <title>Solidarity</title>
+    <link type="text/css" rel="stylesheet"  tal:condition="mode_env == 'production'" href="${root_url}/build/solidarity.css" />
   </head>
   <body>
     <div id='root'></div>
     <div id='modal-portal'></div>
     <script src="${root_url}/build/bundle.js"></script>
+    <script tal:condition="mode_env == 'developement'" src="${root_url}/build/solidarity.js"></script>
   </body>
 </html>

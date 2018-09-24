@@ -11,6 +11,7 @@ var _ = require('lodash');
 
 var general_entries = {
     bundle: ['./js/app/index'],
+    solidarity: ['./css/solidarity.scss']
 };
 
 module.exports = {
