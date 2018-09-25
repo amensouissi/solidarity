@@ -9,8 +9,8 @@ from .lib import config
 def home(request):
     solidarity_config = config.get_config()
     use_webpack_server = solidarity_config.get('use_webpack_server', False)
-    root_url = ''
-    mode_env = os.getenv('ENV_MODE', 'developement')
+    root_url = 'static'
+    mode_env = os.getenv('ENV_MODE', 'production')
     if use_webpack_server:
     	root_url = 'http://{}:{}'.format(
     		solidarity_config.get('webpack_host', 'localhost'),
