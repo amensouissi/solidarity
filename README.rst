@@ -2,6 +2,7 @@ solidarity
 ==========
 
 Backend : Python, Pyramid, PostgreSql, SQLAlchemy, Graphene
+
 Frontend: Javascript, ReactJs, Redux, Apollo, GraphQL
 
 Getting Started for development:
