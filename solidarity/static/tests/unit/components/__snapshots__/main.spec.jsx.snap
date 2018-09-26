@@ -9,7 +9,6 @@ exports[`Main component should render the main component 1`] = `
   <strong>
     message
   </strong>
-   
   : FooBar
 </div>
 `;
