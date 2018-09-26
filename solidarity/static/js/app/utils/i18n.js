@@ -1,5 +1,5 @@
 import Translations from './translations';
 
-export const getTranslation = () => {
+export const getTranslations = () => {
   return Translations;
 };

@@ -36,7 +36,7 @@ const cache = new InMemoryCache({
 //   storage: window.localStorage
 // });
 
-export default function getApolloClient(store) {
+export default function getApolloClient() {
   // use the instane url
   const customFetch = (uri, options) => {
     return fetch(`${window.location.origin}/graphql`, options);
