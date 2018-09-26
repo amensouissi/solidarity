@@ -14,7 +14,7 @@ cache:
     - solidarity/static/node_modules  
 before_install:
   - sudo apt-get update
-  - curl -sL https://deb.nodesource.com/setup_6.x | bash -
+  - sudo curl -sL https://deb.nodesource.com/setup_6.x | bash -
   - sudo apt-get install -y nodejs
   - sudo apt-get install yarn
   - npm install --global webpack@3.5.5
