@@ -1,4 +1,6 @@
 language: python
+python:
+  - "3.6"
 sudo: required
 dist: trusty
 addons:
@@ -12,9 +14,9 @@ cache:
     - solidarity/static/node_modules  
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y nodejs6
+  - curl -sL https://deb.nodesource.com/setup_6.x | bash -
+  - sudo apt-get install -y nodejs
   - sudo apt-get install yarn
-  - sudo apt-get install npm3
   - npm install --global webpack@3.5.5
   - pip3 install --disable-pip-version-check --no-cache-dir setuptools==32.2.0 && pip3 uninstall -y six || true
 install:
