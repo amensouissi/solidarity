@@ -27,7 +27,6 @@ env:
   - TO_TEST=BACKEND
   - TO_TEST=FRONTEND
 script:
-  - cd solidarity/static
   - if [ "$TO_TEST" = "FRONTEND" ]; then npm test; fi
   - if [ "$TO_TEST" = "FRONTEND" ]; then npm run eslint; fi
   - if [ "$TO_TEST" = "FRONTEND" ]; then npm run flow; fi
