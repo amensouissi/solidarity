@@ -1,0 +1,37 @@
+language: python
+sudo: required
+dist: trusty
+addons:
+  ssh_known_hosts: localhost
+  postgresql: "9.5"
+git:
+  depth: 100
+cache:
+  pip: true
+  directories:
+    - solidarity/static/node_modules  
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y nodejs6
+  - sudo apt-get install yarn
+  - sudo apt-get install npm3
+  - npm install --global webpack@3.5.5
+  - pip3 install --disable-pip-version-check --no-cache-dir setuptools==32.2.0 && pip3 uninstall -y six || true
+install:
+  - python3 bootstrap.py
+  - bin/buildout
+  - cd solidarity/static
+  - yarn install --ignore-engines
+env:
+  - TO_TEST=BACKEND
+  - TO_TEST=FRONTEND
+script:
+  - cd solidarity/static
+  - if [ "$TO_TEST" = "FRONTEND" ]; then npm test; fi
+  - if [ "$TO_TEST" = "FRONTEND" ]; then npm run eslint; fi
+  - if [ "$TO_TEST" = "FRONTEND" ]; then npm run flow; fi
+  - if [ "$TO_TEST" = "FRONTEND" ]; then npm run stylelint; fi
+  - if [ "$TO_TEST" = "FRONTEND" ]; then npm run build >/dev/null; fi
+  - if [ "$TO_TEST" = "FRONTEND" ]; then ls -l build/bundle.js; fi
+notifications:
+on_failure: always
