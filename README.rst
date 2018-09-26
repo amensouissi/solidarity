@@ -14,7 +14,7 @@ To run in development mode::
     python3 bootstrap.py
     bin/buildout
     cd solidarity/static
-    yarn
+    yarn install --ignore-engines
     npm run dev
     cd ../..
     bin/pserve development.ini --reload
