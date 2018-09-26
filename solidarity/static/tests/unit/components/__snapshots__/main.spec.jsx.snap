@@ -3,7 +3,9 @@
 exports[`Main component should render the main component (loading) 1`] = `"Loading..."`;
 
 exports[`Main component should render the main component 1`] = `
-<div>
+<div
+  className="container"
+>
   <strong>
     message
   </strong>
