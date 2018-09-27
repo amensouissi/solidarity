@@ -24,8 +24,6 @@ before_install:
 install:
   - python3 bootstrap.py
   - bin/buildout
-  - virtualenv -p python3 venv
-  - source venv/bin/activate
   - pip install -r requirements.txt
   - export PYTHONPATH=$PYTHONPATH:$(pwd)
   - alembic -c travis.ini upgrade head
