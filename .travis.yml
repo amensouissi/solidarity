@@ -3,6 +3,8 @@ python:
   - "3.6"
 sudo: required
 dist: trusty
+services:
+  - postgresql
 addons:
   ssh_known_hosts: localhost
   postgresql: "9.5"
@@ -15,6 +17,7 @@ cache:
   directories:
     - solidarity/static/node_modules  
 before_install:
+  - psql -c 'create database solidarity_test;' -U postgres
   - sudo apt-get update
   - npm install --global webpack@3.5.5
   - pip3 install --disable-pip-version-check --no-cache-dir setuptools==32.2.0 && pip3 uninstall -y six || true
@@ -33,5 +36,7 @@ script:
   - if [ "$TO_TEST" = "FRONTEND" ]; then npm run stylelint; fi
   - if [ "$TO_TEST" = "FRONTEND" ]; then npm run build >/dev/null; fi
   - if [ "$TO_TEST" = "FRONTEND" ]; then ls -l build/bundle.js; fi
+  - cd ../..
+  - if [ "$TO_TEST" = "BACKEND" ]; then bin/test -s solidarity; fi
 notifications:
 on_failure: always
