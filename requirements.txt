@@ -1,4 +1,3 @@
--e git+https://github.com/ecreall/graphql-wsgi.git@090df73f0184f20a643c3d3f413e55f3f4be3d45#egg=graphql-wsgi
 alembic==1.0.0
 arrow==0.12.1
 atomicwrites==1.2.1
@@ -10,6 +9,8 @@ chardet==3.0.4
 click==6.7
 cookiecutter==1.6.0
 future==0.16.0
+graphql-core==2.1
+-e git+https://github.com/ecreall/graphql-wsgi.git@090df73f0184f20a643c3d3f413e55f3f4be3d45#egg=graphql_wsgi
 hupper==1.3
 idna==2.7
 Jinja2==2.10
@@ -23,6 +24,7 @@ plaster==1.0
 plaster-pastedeploy==0.6
 pluggy==0.7.1
 poyo==0.4.1
+promise==2.1
 psycopg2==2.7.5
 py==1.6.0
 Pygments==2.2.0
@@ -35,10 +37,12 @@ python-dateutil==2.7.3
 python-editor==1.0.3
 repoze.lru==0.7
 requests==2.19.1
+Rx==1.6.1
 six==1.11.0
 SQLAlchemy==1.2.11
 transaction==2.2.1
 translationstring==1.3
+typing==3.6.6
 urllib3==1.23
 venusian==1.1.0
 waitress==1.1.0
@@ -47,4 +51,4 @@ whichcraft==0.4.1
 zope.deprecation==4.3.0
 zope.interface==4.5.0
 zope.sqlalchemy==1.0
-
+zope.testrunner==4.8.1
