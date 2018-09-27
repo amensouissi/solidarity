@@ -3,12 +3,37 @@
 exports[`Main component should render the main component (loading) 1`] = `"Loading..."`;
 
 exports[`Main component should render the main component 1`] = `
-<div
-  className="container"
->
-  <strong>
-    message
-  </strong>
-  : FooBar
+<div>
+  <WithStyles(AppBar)
+    color="default"
+    position="static"
+  >
+    <WithStyles(Tabs)
+      indicatorColor="primary"
+      onChange={[Function]}
+      scrollButtons="on"
+      scrollable={true}
+      textColor="primary"
+      value={0}
+    >
+      <WithStyles(Tab)
+        icon={<pure(ThumbUpIcon) />}
+        label="Foo"
+      />
+      <WithStyles(Tab)
+        icon={<pure(ThumbUpIcon) />}
+        label="Bar"
+      />
+    </WithStyles(Tabs)>
+  </WithStyles(AppBar)>
+  <TabContainer>
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Foo body",
+        }
+      }
+    />
+  </TabContainer>
 </div>
 `;

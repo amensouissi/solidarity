@@ -1,9 +1,9 @@
 const Translations = {
   fr: {
-    message: 'Mon commentaire'
+    pages: 'Pages'
   },
   en: {
-    message: 'My comment'
+    pages: 'Pages'
   }
 };
 
