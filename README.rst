@@ -24,7 +24,7 @@ To run in development mode::
 To run with docker::
 
     cd solidarity
-    docker build -t solidarity_app .
-    docker run -d -p 127.0.0.1:6543:6543 solidarity_app
+    sudo docker-compose build
+    sudo docker-compose -f docker-compose.yml up
 
     http://127.0.0.1:6543/

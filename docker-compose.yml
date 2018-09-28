@@ -1,0 +1,33 @@
+version: "2"
+services:
+  solidarity:
+    container_name: solidarity
+    image: solidarity:prod
+    build: .
+    restart: always
+    ports:
+      - 127.0.0.1:6543:6543
+    depends_on:
+      - postgres
+
+  data:
+    restart: "no"
+    image: postgres:9.5
+    volumes:
+      - /var/lib/postgresql
+    command: "true"
+
+  postgres:
+    container_name: postgres
+    image: postgres:9.5
+    volumes:
+      - data
+    expose:
+      - 5432
+    restart: always
+    environment:
+      - POSTGRES_USER=solidarity
+      - POSTGRES_PASSWORD=Solidarity1
+      - POSTGRES_DB=solidarity
+
+
