@@ -1,0 +1,32 @@
+- repo: local
+  hooks:
+  - id: stylelint
+    name: stylelint
+    entry: bash -c "cd solidarity/static/; npm run stylelint"
+    language: system
+    files: ".*/static/.*scss$"
+  - id: eslint
+    name: eslint
+    entry: bash -c "cd solidarity/static/; npm run eslint"
+    language: system
+    files: ".*/static/.*jsx?$"
+  - id: flow
+    name: flow
+    entry: bash -c "cd solidarity/static/; if [[ $USE_FLOW_FROM_DOCKER ]]; then docker run --rm -v $PWD:/app node:6 bash -c 'cd /app; npm run flow'; else npm run flow; fi"
+    language: system
+    files: ".*/static/.*jsx?$"
+  - id: jest
+    name: js tests
+    entry: bash -c "cd solidarity/static/; npm test"
+    language: system
+    files: ".*/static/.*jsx?$"
+  - id: prettier-js
+    name: prettier-js (If this fails, please git add prettier changes and commit again.)
+    entry: bash -c "./solidarity/static/scripts/prettier-eslint.py --write `git diff --name-only --diff-filter=d --cached -- '*.jsx' '*.js'|grep static`"
+    language: system
+    files: ".*/static/.*jsx?$"
+  - id: prettier-graphql
+    name: prettier-graphql (If this fails, please git add prettier changes and commit again.)
+    entry: bash -c "./solidarity/static/node_modules/.bin/prettier --print-width 130 -l `git diff --name-only --diff-filter=d --cached -- '*.graphql'`; RES=$?; ./solidarity/static/node_modules/.bin/prettier --print-width 130 --write `git diff --name-only --cached -- '*.graphql'` > /dev/null; exit $RES"
+    language: system
+    files: ".*/static/.*graphql$"
