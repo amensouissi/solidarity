@@ -27,13 +27,19 @@ exports[`Main component should render the main component 1`] = `
     </WithStyles(Tabs)>
   </WithStyles(AppBar)>
   <TabContainer>
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Foo body",
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/page"
+    >
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Foo body",
+          }
         }
-      }
-    />
+      />
+    </Link>
   </TabContainer>
 </div>
 `;
