@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'react-apollo';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router';
 
 import Pages from '../graphql/queries/Pages.graphql';
 
@@ -21,11 +22,13 @@ type Props = {
   data: {
     loading: boolean,
     pages: Array<Page>
-  }
+  },
+  children: React.Node
 };
 
 type State = {
-  value: number
+  value: number,
+  hasError: boolean
 };
 
 type TabContainerProps = {
@@ -49,16 +52,21 @@ const styles = {
 
 export class DumbMain extends React.Component<Props, State> {
   state = {
-    value: 0
+    value: 0,
+    hasError: false
   };
+
+  componentDidCatch() {
+    this.setState({ hasError: true });
+  }
 
   handleChange = (event: SyntheticEvent<HTMLButtonElement>, value: number) => {
     this.setState({ value: value });
   };
 
   render() {
-    const { data, classes } = this.props;
-    const { value } = this.state;
+    const { data, classes, children } = this.props;
+    const { value, hasError } = this.state;
     if (data.loading) return 'Loading...';
     const currentPage = data.pages[value];
     return (
@@ -79,9 +87,12 @@ export class DumbMain extends React.Component<Props, State> {
         </AppBar>
         {currentPage ? (
           <TabContainer>
-            <div dangerouslySetInnerHTML={{ __html: currentPage.body }} />
+            <Link to="/page">
+              <div dangerouslySetInnerHTML={{ __html: currentPage.body }} />
+            </Link>
           </TabContainer>
         ) : null}
+        {hasError ? 'Oups error!' : children}
       </div>
     );
   }

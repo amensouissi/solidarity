@@ -5,7 +5,9 @@ from pyramid.view import view_config
 from .lib import config
 
 
+# add react routes
 @view_config(route_name='home', renderer='templates/layout.pt')
+@view_config(route_name='page', renderer='templates/layout.pt')
 def home(request):
     solidarity_config = config.get_config()
     use_webpack_server = solidarity_config.get('use_webpack_server', False)
