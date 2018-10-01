@@ -6,6 +6,7 @@ type Props = {
 };
 
 type State = {
+  /* the counter */
   counter: number,
   timeout: ?TimeoutID
 };
