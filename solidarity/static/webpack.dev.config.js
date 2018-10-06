@@ -12,7 +12,7 @@ var webpackHost = WEBPACK_URL.split('://')[1].split(':')[0];
 // For css hot reload to work, don't use ExtractTextPlugin
 module.exports = {
     // devtool: '#cheap-module-eval-source-map',  // http://webpack.github.io/docs/configuration.html#devtool
-    devtool: '#cheap-module-source-map', // https://github.com/webpack/webpack-dev-server/issues/1090
+    devtool: 'eval', // https://github.com/webpack/webpack-dev-server/issues/1090
     devServer: {
         inline: true,
         hot: true,
@@ -31,7 +31,7 @@ module.exports = {
     },
     entry: {
         bundle: [
-            'babel-polyfill', // this is already in index.jsx but we need it to be first, otherwise it doesn't work on IE 11
+            '@babel/polyfill', // this is already in index.jsx but we need it to be first, otherwise it doesn't work on IE 11
             'webpack-dev-server/client?' + WEBPACK_URL,
             'react-hot-loader/patch',
             './js/app/index',
@@ -50,16 +50,18 @@ module.exports = {
             use: {
               loader: 'babel-loader',
               options: {
-                forceEnv: 'development',
+                envName: 'development',
                 plugins: [
-                  'transform-object-rest-spread', 'transform-class-properties',
-                  'transform-react-inline-elements',
-                  ['transform-runtime', { helpers: true, polyfill: false }]
+                  '@babel/plugin-proposal-object-rest-spread',
+                  '@babel/plugin-proposal-class-properties',
+                  '@babel/plugin-transform-react-inline-elements',
+                  'react-hot-loader/babel',
+                  ['@babel/plugin-transform-runtime', { helpers: true }]
                 ],
-                presets: [["env", { "modules": false, "targets": { "ie": 11 },
-                                    "debug": true, "useBuiltIns": true,
+                presets: [["@babel/preset-env", { "modules": false, "targets": { "ie": 11 },
+                                    "debug": true, "useBuiltIns": "entry",
                                     "exclude": ["web.timers", "web.immediate", "web.dom.iterable"] }],
-                          "react", "flow"]
+                          "@babel/preset-react", "@babel/preset-flow"]
               }
             },
             include: [
@@ -89,23 +91,16 @@ module.exports = {
         },
         {
           test: /\.json$/,
-          use: 'json-loader'
-        },
-        {
-         test: /\.md$/,
-         use: ['babel-loader', '@mdx-js/loader']
-       }
+          loader: 'special-loader',
+          type: 'javascript/auto',
+        }
 ]
     },
     resolve:{
         extensions:['.js', '.jsx']
     },
+    mode: 'development',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.DefinePlugin({
-          'process.env': {
-            NODE_ENV: JSON.stringify('development')
-          }
-        }),
     ]
 };

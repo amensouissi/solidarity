@@ -1,8 +1,8 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import React from 'react';
 import { Provider } from 'react-redux';
-import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import ReactDOM from 'react-dom';
 import { Router, browserHistory } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
 import { PersistGate } from 'redux-persist/integration/react';

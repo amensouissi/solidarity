@@ -13,6 +13,6 @@
     <div id='root'></div>
     <div id='modal-portal'></div>
     <script src="${root_url}/build/bundle.js"></script>
-    <script tal:condition="mode_env == 'developement'" src="${root_url}/build/solidarity.js"></script>
+    <script tal:condition="mode_env == 'development'" src="${root_url}/build/solidarity.js"></script>
   </body>
 </html>
