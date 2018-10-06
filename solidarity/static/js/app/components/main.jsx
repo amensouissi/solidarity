@@ -92,7 +92,7 @@ export class DumbMain extends React.Component<Props, State> {
             </Link>
           </TabContainer>
         ) : null}
-        {hasError ? 'Oups error!' : children}
+        {hasError ? 'Oups an error!' : children}
       </div>
     );
   }
