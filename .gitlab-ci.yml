@@ -9,7 +9,6 @@ test_frontend:
     - yarn run test
 
 push to master:
-  stage: pushtomaster
   only:
     - develop
   script:
