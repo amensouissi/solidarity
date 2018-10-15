@@ -54,7 +54,6 @@ from .settings import get_index_settings
 from .utils import (
     connect,
 #    create_index_and_mapping,
-    get_uid,
     get_data,
     get_doc_type_from_uid,
     )
