@@ -4,7 +4,6 @@ Once you have made changes to this file, you have to run `supervisorctl restart 
 
 var path = require('path');
 var webpack = require('webpack');
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var glob = require('glob');
 var _ = require('lodash');
@@ -76,11 +75,6 @@ module.exports = {
           test: /\.(graphql|gql)$/,
           exclude: /node_modules/,
           use: 'graphql-tag/loader'
-        },
-        {
-          test: /\.json$/,
-          loader: 'special-loader',
-          type: 'javascript/auto',
         }
         ]
     },
@@ -88,14 +82,6 @@ module.exports = {
         extensions:['.js', '.jsx']
     },
     mode: 'production',
-    optimization: {
-      minimizer: [
-        new UglifyJSPlugin({
-          sourceMap: true,
-          parallel: true
-        })
-      ]
-    },
     plugins: [
         new MiniCssExtractPlugin({ filename: "[name].css" }),
     ]

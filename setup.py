@@ -19,7 +19,8 @@ requires = [
     'graphene',
     'graphql-wsgi',
     'graphene-sqlalchemy',
-    'zope.sqlalchemy'
+    'zope.sqlalchemy',
+    'elasticsearch'
 ]
 
 tests_require = [

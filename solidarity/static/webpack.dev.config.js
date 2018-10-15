@@ -33,7 +33,6 @@ module.exports = {
         bundle: [
             '@babel/polyfill', // this is already in index.jsx but we need it to be first, otherwise it doesn't work on IE 11
             'webpack-dev-server/client?' + WEBPACK_URL,
-            'react-hot-loader/patch',
             './js/app/index',
         ],
        solidarity: ['./css/solidarity.scss']
@@ -88,11 +87,6 @@ module.exports = {
           test: /\.(graphql|gql)$/,
           exclude: /node_modules/,
           use: 'graphql-tag/loader'
-        },
-        {
-          test: /\.json$/,
-          loader: 'special-loader',
-          type: 'javascript/auto',
         }
 ]
     },

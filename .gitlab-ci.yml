@@ -1,0 +1,18 @@
+test_frontend:
+  before_script:
+    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    - apt-get update -qq && apt-get install -y -qq yarn
+    - cd solidarity/static && yarn
+  script:
+    - cd solidarity/static
+    - yarn run test
+
+push to master:
+  stage: pushtomaster
+  only:
+    - develop
+  script:
+    - chmod +x scripts/git-push
+    - scripts/git-push https://github.com/amensouissi/solidarity.git
+  when: on_success
