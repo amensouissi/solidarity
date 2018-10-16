@@ -19,5 +19,5 @@ ssh-keyscan -H "$ssh_host" >> ~/.ssh/known_hosts
 git merge ${target_branch:-master}
 git checkout ${target_branch:-master}
 git merge ${source_branch:-develop}
-git push --force
+git push $url --force
 exit 0
