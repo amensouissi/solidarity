@@ -6,7 +6,6 @@ push to master:
   only:
     - develop
   script:
-    - /bin/bash scripts/git-push https://amensouissi:$GITHUB_ACCESS_TOKEN@github.com/amensouissi/solidarity.git
+    - /bin/bash scripts/git-push https://$GITHUB_ACCESS_TOKEN@github.com/amensouissi/solidarity.git
   when: on_success
 
-  
