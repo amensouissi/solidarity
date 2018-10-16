@@ -6,6 +6,5 @@ push to master:
   only:
     - develop
   script:
-    - chmod +x scripts/git-push
-    - scripts/git-push https://github.com/amensouissi/solidarity.git
+    - /bin/bash scripts/git-push https://github.com/amensouissi/solidarity.git
   when: on_success
