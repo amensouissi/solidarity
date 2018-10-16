@@ -17,6 +17,7 @@ chmod 600 ~/.ssh/id_rsa
 ssh-keyscan -H "$ssh_host" >> ~/.ssh/known_hosts
 
 git merge ${target_branch:-master}
+git diff
 git checkout ${target_branch:-master}
 git merge ${source_branch:-develop}
 git push --force
