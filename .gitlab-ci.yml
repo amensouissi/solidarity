@@ -1,27 +1,27 @@
 image: python:3.4
 
-cache:
-  paths:
-    - solidarity/static/node_modules/
+# cache:
+#   paths:
+#     - solidarity/static/node_modules/
 
-test_frontend:
-  before_script:
-    - apt-get update -qq
-    - apt-get remove -y -qq cmdtest
-    - apt-get install -y -qq apt-transport-https
-    - wget -qO- https://deb.nodesource.com/setup_8.x | bash -
-    - apt-get install -y nodejs
-    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-    - apt-get update -qq
-    - apt-get install -y -qq yarn
-    - cd solidarity/static
-    - yarn
-  script:
-    - yarn run test
-    # - yarn run eslint
-    # - yarn run stylelint
-    # - yarn run flow
+# test_frontend:
+#   before_script:
+#     - apt-get update -qq
+#     - apt-get remove -y -qq cmdtest
+#     - apt-get install -y -qq apt-transport-https
+#     - wget -qO- https://deb.nodesource.com/setup_8.x | bash -
+#     - apt-get install -y nodejs
+#     - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+#     - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+#     - apt-get update -qq
+#     - apt-get install -y -qq yarn
+#     - cd solidarity/static
+#     - yarn
+#   script:
+#     - yarn run test
+#     - yarn run eslint
+#     - yarn run stylelint
+#     - yarn run flow
 
 push to master:
   stage: deploy
