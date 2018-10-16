@@ -16,10 +16,8 @@ echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 ssh-keyscan -H "$ssh_host" >> ~/.ssh/known_hosts
 
-git config --global --unset https.proxy
 git merge ${target_branch:-master}
 git checkout ${target_branch:-master}
-git fetch
 git merge ${source_branch:-origin/develop}
 git push $url --force
 exit 0
