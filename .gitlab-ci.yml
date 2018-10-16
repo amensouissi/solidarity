@@ -19,15 +19,15 @@ test_frontend:
     - yarn
   script:
     - yarn run test
-    - yarn run eslint
-    - yarn run stylelint
-    - yarn run flow
+    # - yarn run eslint
+    # - yarn run stylelint
+    # - yarn run flow
 
 push to master:
   stage: deploy
   only:
     - develop
   script:
-    - /bin/bash scripts/git-push https://$GITHUB_ACCESS_TOKEN@github.com/amensouissi/solidarity.git
+    - /bin/bash scripts/git-push git@github.com:amensouissi/solidarity.git
   when: on_success
 
