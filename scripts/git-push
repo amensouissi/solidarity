@@ -1,8 +1,7 @@
 #!/bin/bash -e
 
-url=$1
-source_branch=$2
-target_branch=$3
+source_branch=$1
+target_branch=$2
 
 if [ -z "$SSH_PRIVATE_KEY" ]; then
 	>&2 echo "Set SSH_PRIVATE_KEY environment variable"
@@ -12,11 +11,10 @@ fi
 mkdir -p ~/.ssh
 echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
-ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
+ssh-keyscan -H "gitlab.com" >> ~/.ssh/known_hosts
 
-git remote -v
 git merge ${target_branch:-master}
 git checkout ${target_branch:-master}
 git merge ${source_branch:-origin/develop}
-git push $url --force
+git push --force
 exit 0
