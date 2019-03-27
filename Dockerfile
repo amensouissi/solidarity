@@ -1,6 +1,6 @@
 FROM node:6.13.0
 COPY . /root/solidarity
-RUN npm install --global webpack@3.5.5
+RUN npm install --global webpack@4.20.2
 WORKDIR /root/solidarity/solidarity/static
 RUN yarn install --ignore-engines
 RUN npm run build

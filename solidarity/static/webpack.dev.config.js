@@ -15,7 +15,6 @@ module.exports = {
     devtool: 'eval', // https://github.com/webpack/webpack-dev-server/issues/1090
     devServer: {
         inline: true,
-        hot: true,
         headers: {
             "Access-Control-Allow-Origin": APP_URL,
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -54,7 +53,6 @@ module.exports = {
                   '@babel/plugin-proposal-object-rest-spread',
                   '@babel/plugin-proposal-class-properties',
                   '@babel/plugin-transform-react-inline-elements',
-                  'react-hot-loader/babel',
                   ['@babel/plugin-transform-runtime', { helpers: true }]
                 ],
                 presets: [["@babel/preset-env", { "modules": false, "targets": { "ie": 11 },
@@ -95,6 +93,5 @@ module.exports = {
     },
     mode: 'development',
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
     ]
 };
