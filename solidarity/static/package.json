@@ -115,7 +115,7 @@
     "json-loader": "^0.5.4",
     "jss": "^9.6.0",
     "linkifyjs": "^2.1.6",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.18.1",
     "mousetrap": "^1.6.1",
